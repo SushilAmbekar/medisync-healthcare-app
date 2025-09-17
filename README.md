@@ -45,7 +45,7 @@ You can watch the **project demo video** here:
 
 [![Demo Video](https://drive.google.com/uc?export=view&id=YOUR_THUMBNAIL_FILE_ID)](https://drive.google.com/file/d/1nuL8WCh3NSw28heN2BCWUUQyShi9LT2G/view?usp=sharing)  
 
-👉 Click the thumbnail above to watch the video.  
+👉 Click the Link above to watch the video.  
 
 ---
 
