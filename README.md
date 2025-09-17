@@ -20,12 +20,26 @@ The system provides a clean and modern UI with easy navigation for patients to:
 ---
 
 ## 🏗️ Tech Stack
-- **Backend:** Spring Boot (Java 8), JPA/Hibernate, MySQL  
+- **Backend:** Spring Boot (Java 17), JPA, MySQL  
 - **Frontend:** Angular, TypeScript, Bootstrap, Angular Material  
 - **Tools:** Maven, Git, Postman  
 - **Hosting:** GitHub  
 
 ---
+
+## 📸 Screenshots
+(Add screenshots of your app here — replace `screenshots/demo1.png` with your actual screenshot paths)
+
+| Appointment Booking | Appointments List |
+|---------------------|-------------------|
+| ![Booking](screenshots/appointment.png) | ![List](screenshots/appointments-list.png) |
+
+## 📸 Screenshots
+(Add screenshots of your app here — replace `screenshots/demo1.png` with your actual screenshot paths)
+
+| Appointment Booking | Appointments List |
+|---------------------|-------------------|
+| ![Booking](screenshots/appointment.png) | ![List](screenshots/appointments-list.png) |
 
 ## 📸 Screenshots
 (Add screenshots of your app here — replace `screenshots/demo1.png` with your actual screenshot paths)
