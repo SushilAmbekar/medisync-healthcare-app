@@ -31,17 +31,17 @@ The system provides a clean and modern UI with easy navigation for patients to:
 
 | Appointment Booking | Appointments List |
 |---------------------|-------------------|
-| ![Create Appointment]([https://drive.google.com/uc?export=view&id=YOUR_FILE_ID_1](https://drive.google.com/file/d/1t9lPa255CKijw1zJjfKlxrROfaDNqcQo/view?usp=sharing) | ![Appointment List]([https://drive.google.com/uc?export=view&id=YOUR_FILE_ID_2](https://drive.google.com/file/d/1fTy_muFG0gd8T1sB6HmzwNVvnw_1ywa0/view?usp=sharing) |
+| ![Create Appointment](https://drive.google.com/uc?export=view&id=1t9lPa255CKijw1zJjfKlxrROfaDNqcQo) | ![Appointment List](https://drive.google.com/uc?export=view&id=1fTy_muFG0gd8T1sB6HmzwNVvnw_1ywa0) |
 
 | Search Bar | SideBar |
 |-----------------------|-----------|
-| ![Search Bar]([https://drive.google.com/uc?export=view&id=YOUR_FILE_ID_3](https://drive.google.com/file/d/1d80PN1Doc8nTIWJgiemPYdGifsBFK6Mj/view?usp=sharing) | ![Side Bar]([https://drive.google.com/uc?export=view&id=YOUR_FILE_ID_4](https://drive.google.com/file/d/1HqjC7rB4Ah3fV6_kITAWK79u_6_32fcq/view?usp=sharing) |
+| ![Search Bar](https://drive.google.com/uc?export=view&id=1d80PN1Doc8nTIWJgiemPYdGifsBFK6Mj) | ![Side Bar](https://drive.google.com/uc?export=view&id=1HqjC7rB4Ah3fV6_kITAWK79u_6_32fcq) |
 
 ---
 
 ## 🎥 Demo Video
 You can watch the **project demo video** here:  
 
-👉 [Watch the Demo Video on Google Drive]([PASTE-YOUR-DRIVE-LINK-HERE](https://drive.google.com/file/d/1nuL8WCh3NSw28heN2BCWUUQyShi9LT2G/view?usp=sharing))  
+👉 [Watch the Demo Video on Google Drive](https://drive.google.com/file/d/1nuL8WCh3NSw28heN2BCWUUQyShi9LT2G/view?usp=sharing)  
 
 ---
