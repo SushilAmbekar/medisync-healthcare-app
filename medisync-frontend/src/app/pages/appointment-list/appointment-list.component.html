@@ -1,0 +1,105 @@
+<div class="appointment-list-container">
+
+  <!-- ✅ Show logged-in user -->
+  <div class="welcome-user" *ngIf="loggedInUsername">
+    Welcome, {{ loggedInUsername }}!
+  </div>
+
+  <h2 class="table-title">Appointments</h2>
+
+  <!-- Search Filter -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Search appointments</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search by patient, doctor, or reason">
+  </mat-form-field>
+
+  <!-- Action Buttons -->
+  <div class="actions-container">
+    <button mat-raised-button color="primary" (click)="downloadPDF()">Download PDF</button>
+    <button mat-raised-button color="accent" (click)="downloadExcel()">Export Excel</button>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 full-width">
+    <!-- Serial Column -->
+    <ng-container matColumnDef="serial">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        {{ i + 1 + (dataSource.paginator?.pageIndex || 0) * (dataSource.paginator?.pageSize || dataSource.data.length) }}
+      </td>
+    </ng-container>
+
+    <!-- Patient Name -->
+    <ng-container matColumnDef="patientName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Patient Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.patientName }}</td>
+    </ng-container>
+
+    <!-- Doctor Name -->
+    <ng-container matColumnDef="doctorName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Doctor Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.doctorName }}</td>
+    </ng-container>
+
+    <!-- Specialty -->
+    <ng-container matColumnDef="specialty">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Specialty</th>
+      <td mat-cell *matCellDef="let element">{{ element.specialty }}</td>
+    </ng-container>
+
+    <!-- Date -->
+    <ng-container matColumnDef="appointmentDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+      <td mat-cell *matCellDef="let element">{{ element.appointmentDate }}</td>
+    </ng-container>
+
+    <!-- Time -->
+    <ng-container matColumnDef="appointmentTime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Time</th>
+      <td mat-cell *matCellDef="let element">{{ element.appointmentTime }}</td>
+    </ng-container>
+
+    <!-- Reason -->
+    <ng-container matColumnDef="reason">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Reason</th>
+      <td mat-cell *matCellDef="let element">{{ element.reason }}</td>
+    </ng-container>
+
+    <!-- Status -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+      <td mat-cell *matCellDef="let element">
+        <span [ngClass]="{
+          'status-booked': element.status === 'Booked',
+          'status-completed': element.status === 'Completed',
+          'status-cancelled': element.status === 'Cancelled'
+        }">{{ element.status }}</span>
+      </td>
+    </ng-container>
+
+    <!-- Actions -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button color="primary" (click)="updateStatus(element, 'Completed')" [disabled]="element.status !== 'Booked'">
+          Complete
+        </button>
+        <button mat-button color="warn" (click)="updateStatus(element, 'Cancelled')" [disabled]="element.status !== 'Booked'">
+          Cancel
+        </button>
+        <button mat-button color="accent" (click)="deleteAppointment(element)">
+          Delete
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <!-- Centered Paginator -->
+  <div class="paginator-container">
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+  </div>
+
+  <p *ngIf="dataSource.data.length === 0" class="no-data">No appointments found.</p>
+</div>

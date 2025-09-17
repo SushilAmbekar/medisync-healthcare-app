@@ -1,0 +1,21 @@
+/* Basic layout for sidebar and content */
+:host {
+  display: flex;
+  height: 100vh;
+}
+
+mat-sidenav {
+  width: 250px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}

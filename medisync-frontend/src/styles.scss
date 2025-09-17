@@ -1,0 +1,51 @@
+/* ==================== Global Styles ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', "Helvetica Neue", sans-serif;
+  color: var(--mat-sys-on-surface, #000);
+  background-color: var(--mat-sys-surface, #fff);
+  font-size: 16px;
+  color-scheme: light; /* light theme */
+}
+
+/* Reset default margin for body */
+body {
+  margin: 0;
+}
+
+/* ==================== Material Icons (Google Fonts) ==================== */
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Standard property for compatibility */
+  font-feature-settings: 'liga';
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==================== Angular Material Theming ==================== */
+:root {
+  --mdc-theme-primary: #3f51b5; /* Indigo */
+  --mdc-theme-secondary: #e91e63; /* Pink */
+  --mdc-theme-background: #ffffff;
+  --mdc-theme-surface: #ffffff;
+  --mdc-theme-on-primary: #ffffff;
+  --mdc-theme-on-secondary: #ffffff;
+  --mdc-theme-on-surface: #000000;
+}
+
+.mat-toolbar {
+  font-family: 'Roboto', "Helvetica Neue", sans-serif;
+}

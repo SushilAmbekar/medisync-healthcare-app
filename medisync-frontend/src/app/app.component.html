@@ -1,0 +1,48 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidebar -->
+  <mat-sidenav
+    #sidenav
+    class="sidenav"
+    [mode]="isHandset ? 'over' : 'side'"
+    [opened]="!isHandset || isSidenavOpen"
+    (backdropClick)="sidenav.close()"
+  >
+    <div class="logo-container">
+      <img src="assets/Logo.png" alt="MediSync Logo" />
+      <h2 class="app-title">MediSync</h2>
+    </div>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/create-appointment" routerLinkActive="active">
+        <mat-icon matListIcon>add</mat-icon>
+        <span>Create Appointment</span>
+      </a>
+
+      <a mat-list-item routerLink="/appointments" routerLinkActive="active">
+        <mat-icon matListIcon>event</mat-icon>
+        <span>Appointments List</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="toolbar">
+      <button mat-icon-button (click)="sidenav.toggle()" *ngIf="isHandset">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="toolbar-title">MediSync Dashboard</span>
+
+      <span class="spacer"></span>
+
+      <!-- Future Profile/Logout -->
+      <button mat-icon-button aria-label="User profile">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

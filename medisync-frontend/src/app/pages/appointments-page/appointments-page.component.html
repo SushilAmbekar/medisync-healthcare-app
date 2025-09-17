@@ -1,0 +1,18 @@
+<div class="appointments-page">
+
+  <!-- Top Navigation -->
+  <div class="top-nav">
+    <button routerLink="/appointments" routerLinkActive="active" mat-button>
+      Appointments
+    </button>
+    <button routerLink="/create-appointment" routerLinkActive="active" mat-button>
+      Create Appointment
+    </button>
+  </div>
+
+  <div class="content">
+    <!-- Render child routes here -->
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

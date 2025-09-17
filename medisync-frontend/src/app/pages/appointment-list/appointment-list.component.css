@@ -1,0 +1,57 @@
+.appointment-list-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.table-title {
+  text-align: center;
+  color: #1976d2;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.actions-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+button {
+  margin-right: 8px;
+}
+
+.status-booked {
+  color: #42a5f5;
+  font-weight: 600;
+}
+
+.status-completed {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.status-cancelled {
+  color: #f44336;
+  font-weight: 600;
+}
+
+.no-data {
+  text-align: center;
+  margin-top: 20px;
+  color: #777;
+}
+
+.paginator-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}

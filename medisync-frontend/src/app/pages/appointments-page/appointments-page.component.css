@@ -1,0 +1,17 @@
+/* Top nav styling */
+.top-nav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+button.active {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Content styling */
+.content {
+  padding: 10px;
+}
+
+/* Retain your existing sidebar / mat-card styles if any */
