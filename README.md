@@ -28,25 +28,14 @@ The system provides a clean and modern UI with easy navigation for patients to:
 ---
 
 ## 📸 Screenshots
-(Add screenshots of your app here — replace `screenshots/demo1.png` with your actual screenshot paths)
 
 | Appointment Booking | Appointments List |
 |---------------------|-------------------|
-| ![Booking](screenshots/appointment.png) | ![List](screenshots/appointments-list.png) |
+| ![Create Appointment]([https://drive.google.com/uc?export=view&id=YOUR_FILE_ID_1](https://drive.google.com/file/d/1t9lPa255CKijw1zJjfKlxrROfaDNqcQo/view?usp=sharing)) | ![Appointment List]([https://drive.google.com/uc?export=view&id=YOUR_FILE_ID_2](https://drive.google.com/file/d/1fTy_muFG0gd8T1sB6HmzwNVvnw_1ywa0/view?usp=sharing)) |
 
-## 📸 Screenshots
-(Add screenshots of your app here — replace `screenshots/demo1.png` with your actual screenshot paths)
-
-| Appointment Booking | Appointments List |
-|---------------------|-------------------|
-| ![Booking](screenshots/appointment.png) | ![List](screenshots/appointments-list.png) |
-
-## 📸 Screenshots
-(Add screenshots of your app here — replace `screenshots/demo1.png` with your actual screenshot paths)
-
-| Appointment Booking | Appointments List |
-|---------------------|-------------------|
-| ![Booking](screenshots/appointment.png) | ![List](screenshots/appointments-list.png) |
+| Search Bar | SideBar |
+|-----------------------|-----------|
+| ![Search Bar]([https://drive.google.com/uc?export=view&id=YOUR_FILE_ID_3](https://drive.google.com/file/d/1d80PN1Doc8nTIWJgiemPYdGifsBFK6Mj/view?usp=sharing)) | ![Side Bar]([https://drive.google.com/uc?export=view&id=YOUR_FILE_ID_4](https://drive.google.com/file/d/1HqjC7rB4Ah3fV6_kITAWK79u_6_32fcq/view?usp=sharing)) |
 
 ---
 
