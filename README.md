@@ -39,9 +39,13 @@ The system provides a clean and modern UI with easy navigation for patients to:
 
 ---
 
-## 🎥 Demo Video
+## 🎥 Demo Video  
+
 You can watch the **project demo video** here:  
 
-👉 [Watch the Demo Video on Google Drive](https://drive.google.com/file/d/1nuL8WCh3NSw28heN2BCWUUQyShi9LT2G/view?usp=sharing)  
+[![Demo Video](https://drive.google.com/uc?export=view&id=YOUR_THUMBNAIL_FILE_ID)](https://drive.google.com/file/d/1nuL8WCh3NSw28heN2BCWUUQyShi9LT2G/view?usp=sharing)  
+
+👉 Click the thumbnail above to watch the video.  
 
 ---
+
