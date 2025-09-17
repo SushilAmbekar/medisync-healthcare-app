@@ -1,35 +1,36 @@
-MediSync Healthcare Management Application
+🏥 MediSync Healthcare Management Application
 
 Author: Sushil Ambekar
 Role: Java Full Stack Developer
-Experience: 2+ Years
+Experience: 2 Years
 
-Project Overview
+🌟 Project Overview
 
-MediSync is a Healthcare Management System that allows patients to book appointments with doctors and manage healthcare records.
-This is a full-stack application built with Angular (frontend) and Spring Boot (backend microservices).
+MediSync is a full-stack Healthcare Management System designed for hospitals and clinics. Patients can book appointments with doctors, and doctors or admins can manage healthcare records efficiently.
 
-Key Features
+Frontend: Angular + Angular Material
 
-Patient Management: View, add, update, and delete patient information.
+Backend: Spring Boot Microservices
 
-Doctor Management: View, add, update, and delete doctor information.
+Database: H2 / MySQL
 
-Appointment Management: Patients can book, update, or cancel appointments with doctors.
+Architecture: Microservices (Patient, Doctor, Appointment)
 
-Microservices Architecture: Three separate backend services:
+🔑 Key Features
 
-Patient Service (localhost:8081)
+Patient Management: Add, update, view, and delete patient information.
 
-Doctor Service (localhost:8082)
+Doctor Management: Add, update, view, and delete doctor profiles.
 
-Appointment Service (localhost:8083)
+Appointment Management: Book, update, and cancel appointments.
 
-RESTful APIs: Communicates between Angular frontend and backend services.
+RESTful API Integration: Frontend communicates seamlessly with backend services.
 
-Clean UI: Built with Angular Material and responsive design.
+Clean and Responsive UI: Modern design built with Angular Material.
 
-Technology Stack
+Microservices Architecture: Separate services for patients, doctors, and appointments for scalability and maintainability.
+
+🛠 Technology Stack
 Layer	Technology/Framework
 Frontend	Angular, Angular Material
 Backend	Java, Spring Boot
@@ -37,7 +38,7 @@ Database	H2 / MySQL
 REST APIs	Spring Boot REST Controllers
 Version Control	Git & GitHub
 Build & Serve	npm, Angular CLI
-Project Structure
+🗂 Project Structure
 medisync-healthcare-app/
 │
 ├─ patient-service/        # Backend microservice for patients
@@ -45,7 +46,7 @@ medisync-healthcare-app/
 ├─ appointment-service/    # Backend microservice for appointments
 └─ medisync-frontend/      # Angular frontend
 
-Installation & Running Locally
+⚙️ Installation & Running Locally
 
 Clone the repository
 
@@ -77,21 +78,23 @@ ng serve
 
 Open your browser at http://localhost:4200.
 
-Live Demo
+🎥 Live Demo
 
 📹 Watch the working application here:
 
 
-Replace YOUR_VIDEO_ID with the YouTube or Loom video ID of your demo.
+Replace YOUR_VIDEO_ID with your actual YouTube or Loom video ID.
 
-Screenshots
-Create Appointment Dashboard
+📸 Screenshots
 
-Appointment Booking
+Patient Dashboard
 
-Replace the screenshot paths with actual images from your project.
+Appointment Lists
 
-API Endpoints
+
+Replace the paths with actual screenshots from your project.
+
+📡 API Endpoints
 Service	Endpoint	Method
 Patient Service	/api/patients	GET, POST
 Patient Service	/api/patients/{id}	GET, PUT, DELETE
@@ -99,7 +102,7 @@ Doctor Service	/api/doctors	GET, POST
 Doctor Service	/api/doctors/{id}	GET, PUT, DELETE
 Appointment Service	/api/appointments	GET, POST
 Appointment Service	/api/appointments/{id}	GET, PUT, DELETE
-Author Contact
+📞 Contact & Connect
 
 Name: Sushil Ambekar
 
