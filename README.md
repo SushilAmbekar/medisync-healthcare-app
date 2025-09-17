@@ -1,111 +1,44 @@
-🏥 MediSync Healthcare Management Application
+# MediSync - Healthcare Management Application  
 
-Author: Sushil Ambekar
-Role: Java Full Stack Developer
-Experience: 2 Years
+## 📌 Overview
+MediSync is a Healthcare Management System that allows patients to book appointments with doctors and manage healthcare records.  
+This is a **Java Full Stack application** built with **Spring Boot (Backend)** and **Angular (Frontend)**.  
 
-🌟 Project Overview
+The system provides a clean and modern UI with easy navigation for patients to:  
+- Browse doctors by specialization  
+- Book appointments with date, time, and reason  
+- View a list of upcoming and past appointments  
 
-MediSync is a full-stack Healthcare Management System designed for hospitals and clinics. Patients can book appointments with doctors, and doctors or admins can manage healthcare records efficiently.
+---
 
-Frontend: Angular + Angular Material
+## 🚀 Features
+- 🏥 **Book Appointments** – Patients can select doctor, date, time, and reason for visit  
+- 📋 **View Appointments** – Patients can see all their appointments in one place  
+- 👨‍⚕️ **Doctor Specialization** – Doctors categorized by specialty (e.g., Cardiologist, Dermatologist, Neurologist)  
+- 🎨 **Responsive UI** – Built with Angular + Bootstrap + Material Design for a modern look  
 
-Backend: Spring Boot Microservices
+---
 
-Database: H2 / MySQL
+## 🏗️ Tech Stack
+- **Backend:** Spring Boot (Java 8), JPA/Hibernate, MySQL  
+- **Frontend:** Angular, TypeScript, Bootstrap, Angular Material  
+- **Tools:** Maven, Git, Postman  
+- **Hosting:** GitHub  
 
-Architecture: Microservices (Patient, Doctor, Appointment)
+---
 
-🔑 Key Features
+## 📸 Screenshots
+(Add screenshots of your app here — replace `screenshots/demo1.png` with your actual screenshot paths)
 
-Patient Management: Add, update, view, and delete patient information.
+| Appointment Booking | Appointments List |
+|---------------------|-------------------|
+| ![Booking](screenshots/appointment.png) | ![List](screenshots/appointments-list.png) |
 
-Doctor Management: Add, update, view, and delete doctor profiles.
+---
 
-Appointment Management: Book, update, and cancel appointments.
+## 🎥 Demo Video
+You can watch the **project demo video** here:  
 
-RESTful API Integration: Frontend communicates seamlessly with backend services.
+👉 [Watch the Demo Video on Google Drive]([PASTE-YOUR-DRIVE-LINK-HERE](https://drive.google.com/file/d/1nuL8WCh3NSw28heN2BCWUUQyShi9LT2G/view?usp=sharing))  
 
-Clean and Responsive UI: Modern design built with Angular Material.
-
-Microservices Architecture: Separate services for patients, doctors, and appointments for scalability and maintainability.
-
-🛠 Technology Stack
-Layer	Technology/Framework
-Frontend	Angular, Angular Material
-Backend	Java, Spring Boot
-Database	H2 / MySQL
-REST APIs	Spring Boot REST Controllers
-Version Control	Git & GitHub
-Build & Serve	npm, Angular CLI
-🗂 Project Structure
-medisync-healthcare-app/
-│
-├─ patient-service/        # Backend microservice for patients
-├─ doctor-service/         # Backend microservice for doctors
-├─ appointment-service/    # Backend microservice for appointments
-└─ medisync-frontend/      # Angular frontend
-
-⚙️ Installation & Running Locally
-
-Clone the repository
-
-git clone https://github.com/SushilAmbekar/medisync-healthcare-app.git
-cd medisync-healthcare-app
-
-
-Run Backend Services
-
-# Patient Service
-cd patient-service
-mvn spring-boot:run  # or java -jar target/patient-service.jar
-
-# Doctor Service
-cd ../doctor-service
-mvn spring-boot:run
-
-# Appointment Service
-cd ../appointment-service
-mvn spring-boot:run
-
-
-Run Angular Frontend
-
-cd medisync-frontend
-npm install
-ng serve
-
-
-Open your browser at http://localhost:4200.
-
-🎥 Live Demo
-
-📹 Watch the working application here:
-
-
-Replace YOUR_VIDEO_ID with your actual YouTube or Loom video ID.
-
-📸 Screenshots
-
-Patient Dashboard
-
-Appointment Lists
-
-
-Replace the paths with actual screenshots from your project.
-
-📡 API Endpoints
-Service	Endpoint	Method
-Patient Service	/api/patients	GET, POST
-Patient Service	/api/patients/{id}	GET, PUT, DELETE
-Doctor Service	/api/doctors	GET, POST
-Doctor Service	/api/doctors/{id}	GET, PUT, DELETE
-Appointment Service	/api/appointments	GET, POST
-Appointment Service	/api/appointments/{id}	GET, PUT, DELETE
-📞 Contact & Connect
-
-Name: Sushil Ambekar
-
-LinkedIn: linkedin.com/in/sushilambekar
-
-GitHub: github.com/SushilAmbekar
+---
