@@ -1,54 +1,65 @@
-# MediSync - Healthcare Management Application  
+# MediSync – Healthcare Management Application
 
 ## 📌 Overview
-MediSync is a Healthcare Management System that allows patients to book appointments with doctors and manage healthcare records.  
-This is a **Java Full Stack application** built with **Spring Boot (Backend)** and **Angular (Frontend)**.  
+**MediSync** is a modern **Healthcare Management System** designed to streamline patient-doctor interactions. Patients can easily **book appointments, view healthcare records, and manage consultations** in a secure and user-friendly environment.  
 
-The system provides a clean and modern UI with easy navigation for patients to:  
-- Browse doctors by specialization  
-- Book appointments with date, time, and reason  
-- View a list of upcoming and past appointments  
+This is a **Java Full Stack application** built with **Spring Boot (Backend)** and **Angular (Frontend)**, featuring a responsive, intuitive interface suitable for desktops and mobile devices.  
+
+**Key Highlights:**  
+- Efficient appointment booking system  
+- Doctors categorized by specialization for easy search  
+- Comprehensive view of upcoming and past appointments  
+- Modern, responsive UI for seamless user experience  
 
 ---
 
 ## 🚀 Features
-- 🏥 **Book Appointments** – Patients can select doctor, date, time, and reason for visit  
-- 📋 **View Appointments** – Patients can see all their appointments in one place  
-- 👨‍⚕️ **Doctor Specialization** – Doctors categorized by specialty (e.g., Cardiologist, Dermatologist, Neurologist)  
-- 🎨 **Responsive UI** – Built with Angular + Bootstrap + Material Design for a modern look  
+
+### Patient-Centric Features
+- **Book Appointments:** Select doctor, date, time, and reason for visit  
+- **View Appointments:** Track upcoming and past appointments  
+- **Search Doctors:** Filter doctors by specialization (e.g., Cardiologist, Dermatologist, Neurologist)  
+
+### UI/UX Features
+- **Responsive Design:** Compatible with desktop, tablet, and mobile devices  
+- **Modern Interface:** Built with Angular, Bootstrap, and Angular Material  
+- **Intuitive Navigation:** Easy access to appointments, doctor search, and profile management  
 
 ---
 
-## 🏗️ Tech Stack
-- **Backend:** Spring Boot (Java 17), JPA, MySQL  
-- **Frontend:** Angular, TypeScript, Bootstrap, Angular Material  
-- **Tools:** Maven, Git, Postman  
-- **Hosting:** GitHub  
+## 🏗️ Technology Stack
+
+| Layer | Technologies |
+|-------|-------------|
+| Backend | Spring Boot (Java 17), JPA, MySQL |
+| Frontend | Angular, TypeScript, Bootstrap, Angular Material |
+| Tools & Utilities | Maven, Git, Postman |
+| Deployment & Hosting | GitHub |
 
 ---
 
 ## 📸 Screenshots
 
 | Appointment Booking | Appointments List |
-|---------------------|-------------------|
+|---------------------|------------------|
 | ![Create Appointment](https://drive.google.com/uc?export=view&id=1t9lPa255CKijw1zJjfKlxrROfaDNqcQo) | ![Appointment List](https://drive.google.com/uc?export=view&id=1fTy_muFG0gd8T1sB6HmzwNVvnw_1ywa0) |
 
-| Search Bar | SideBar |
-|-----------------------|-----------|
-| ![Search Bar](https://drive.google.com/uc?export=view&id=1d80PN1Doc8nTIWJgiemPYdGifsBFK6Mj) | ![Side Bar](https://drive.google.com/uc?export=view&id=1HqjC7rB4Ah3fV6_kITAWK79u_6_32fcq) |
+| Search Bar | Sidebar Navigation |
+|------------|------------------|
+| ![Search Bar](https://drive.google.com/uc?export=view&id=1d80PN1Doc8nTIWJgiemPYdGifsBFK6Mj) | ![Sidebar](https://drive.google.com/uc?export=view&id=1HqjC7rB4Ah3fV6_kITAWK79u_6_32fcq) |
 
-| Appointment List | 
-|-----------------------|
-| ![Appointment List][(https://drive.google.com/uc?export=view&id=1d80PN1Doc8nTIWJgiemPYdGifsBFK6Mj)](https://drive.google.com/file/d/1_qhBNWJkrsPgaSOA6PTLzV6cef8EWmwt/view?usp=sharing) 
 ---
 
 ## 🎥 Demo Video  
 
-You can watch the **project demo video** here:  
+Experience the **full functionality of MediSync** in this demo:  
 
-[![Demo Video](https://drive.google.com/uc?export=view&id=YOUR_THUMBNAIL_FILE_ID)](https://drive.google.com/file/d/1nuL8WCh3NSw28heN2BCWUUQyShi9LT2G/view?usp=sharing)  
-
-👉 Click the Link above to watch the video.  
+[![Watch Demo](https://drive.google.com/uc?export=view&id=YOUR_THUMBNAIL_FILE_ID)](https://drive.google.com/file/d/1nuL8WCh3NSw28heN2BCWUUQyShi9LT2G/view?usp=sharing)  
 
 ---
 
+## 💡 Key Takeaways for Recruiters
+- **End-to-End Full Stack Development:** Implemented using Spring Boot (REST APIs) and Angular  
+- **Real-World Domain Exposure:** Built for healthcare workflows, including appointment management and doctor specialization  
+- **Modern Frontend Skills:** Experience with Angular, Bootstrap, Material Design, and responsive UI  
+- **Database & API Integration:** Strong understanding of JPA, MySQL, and RESTful API design  
