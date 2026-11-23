@@ -1,0 +1,48 @@
+# Runs MySQL and the three backend services.
+# Copy .env.example to .env and set DB_PASSWORD first, then: docker compose up --build
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+      MYSQL_DATABASE: healthcare_db
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -p$$MYSQL_ROOT_PASSWORD"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  patient-service:
+    build: ./patient-service
+    ports:
+      - "8081:8081"
+    environment: &db-settings
+      DB_URL: jdbc:mysql://mysql:3306/healthcare_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      DB_USERNAME: root
+      DB_PASSWORD: ${DB_PASSWORD}
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  doctor-service:
+    build: ./doctor_service/doctor_service
+    ports:
+      - "8082:8082"
+    environment: *db-settings
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  appointment-service:
+    build: ./appointment-service
+    ports:
+      - "8083:8083"
+    environment: *db-settings
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  mysql-data:

@@ -57,6 +57,23 @@ export DB_PASSWORD=your-password
 ./mvnw spring-boot:run
 ```
 
+## 🐳 Run with Docker
+
+Each backend service has a multi-stage `Dockerfile`, and `docker-compose.yml` starts MySQL and all three services:
+
+```bash
+cp .env.example .env      # then set DB_PASSWORD in .env
+docker compose up --build
+```
+
+| Service | URL |
+|---------|-----|
+| patient-service | http://localhost:8081/api/patients |
+| doctor-service | http://localhost:8082/api/doctors |
+| appointment-service | http://localhost:8083/api/appointments |
+
+Then start the frontend with `npm start` in `medisync-frontend`.
+
 ## 📸 Screenshots
 
 | Appointment Booking | Appointments List |
