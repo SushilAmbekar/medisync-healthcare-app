@@ -92,6 +92,12 @@ kubectl port-forward service/appointment-service 8083:8083
 
 CI deploys these manifests to a kind cluster on every push and calls each service through its Kubernetes Service.
 
+## 🔧 Jenkins
+
+The `Jenkinsfile` is a declarative pipeline that builds and tests each backend service with its Maven wrapper, publishes the JUnit reports and archives the jars. Because the tests use an in-memory H2 database, the Jenkins agent needs only JDK 17 or later. To use it, create a Pipeline (or Multibranch Pipeline) job that reads `Jenkinsfile` from this repository.
+
+CI runs the Jenkinsfile with [Jenkinsfile Runner](https://github.com/jenkinsci/jenkinsfile-runner) on every push.
+
 ## 📸 Screenshots
 
 | Appointment Booking | Appointments List |

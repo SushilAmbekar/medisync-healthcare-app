@@ -132,3 +132,27 @@ jobs:
           kubectl get pods -o wide
           kubectl describe pods
           kubectl logs -l app --all-containers --tail=100 || true
+
+  jenkins:
+    name: Jenkinsfile (Jenkinsfile Runner)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # A Jenkins agent needs a JDK; the Jenkinsfile Runner image only has a JRE.
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      # Runs the Jenkinsfile in a throwaway Jenkins, so a broken pipeline fails CI.
+      # The JDK is copied with its symlinks resolved, because its cacerts file is a
+      # symlink to a path that does not exist inside the container.
+      - name: Run the Jenkinsfile
+        run: |
+          cp -rL "$JAVA_HOME" "$RUNNER_TEMP/jdk"
+          docker run --rm \
+            -v "$PWD:/workspace" \
+            -v "$RUNNER_TEMP/jdk:/opt/jdk:ro" \
+            -e JAVA_HOME=/opt/jdk \
+            ghcr.io/jenkinsci/jenkinsfile-runner:jre-21
