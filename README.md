@@ -1,5 +1,7 @@
 # MediSync – Healthcare Management Application
 
+[![CI](https://github.com/SushilAmbekar/medisync-healthcare-app/actions/workflows/ci.yml/badge.svg)](https://github.com/SushilAmbekar/medisync-healthcare-app/actions/workflows/ci.yml)
+
 ## 📌 Overview
 **MediSync** is a modern **Healthcare Management System** designed to streamline patient-doctor interactions. Patients can easily **book appointments, view healthcare records, and manage consultations** in a secure and user-friendly environment.  
 
