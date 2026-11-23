@@ -1,5 +1,14 @@
 <div class="appointments-page">
 
+  <!-- Shown only in the GitHub Pages demo build -->
+  <div class="demo-banner" *ngIf="demoMode" role="status">
+    <mat-icon>info</mat-icon>
+    <span>
+      <strong>Live demo:</strong> this runs in your browser with sample data, and your changes are saved only in
+      this browser. Run the Spring Boot services to use the real API.
+    </span>
+  </div>
+
   <!-- Top Navigation -->
   <div class="top-nav">
     <button routerLink="/appointments" routerLinkActive="active" mat-button>
