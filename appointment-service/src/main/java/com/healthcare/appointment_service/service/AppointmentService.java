@@ -1,5 +1,6 @@
 package com.healthcare.appointment_service.service;
 
+import com.healthcare.appointment_service.exception.AppointmentNotFoundException;
 import com.healthcare.appointment_service.model.Appointment;
 import com.healthcare.appointment_service.repository.AppointmentRepository;
 import org.springframework.stereotype.Service;
@@ -45,6 +46,9 @@ public class AppointmentService {
     }
 
     public void deleteAppointment(Long id) {
+        if (!repository.existsById(id)) {
+            throw new AppointmentNotFoundException(id);
+        }
         repository.deleteById(id);
     }
 
@@ -67,7 +71,7 @@ public class AppointmentService {
                     existing.setStatus("Cancelled");
                     return repository.save(existing);
                 })
-                .orElseThrow(() -> new RuntimeException("Appointment not found with id " + id));
+                .orElseThrow(() -> new AppointmentNotFoundException(id));
     }
 
     // ✅ New: Mark appointment as completed
@@ -77,6 +81,6 @@ public class AppointmentService {
                     existing.setStatus("Completed");
                     return repository.save(existing);
                 })
-                .orElseThrow(() -> new RuntimeException("Appointment not found with id " + id));
+                .orElseThrow(() -> new AppointmentNotFoundException(id));
     }
 }
