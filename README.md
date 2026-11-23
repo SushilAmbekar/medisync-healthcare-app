@@ -114,7 +114,9 @@ CI runs the Jenkinsfile with [Jenkinsfile Runner](https://github.com/jenkinsci/j
 
 Experience the **full functionality of MediSync** in this demo:  
 
-[![Watch Demo](https://drive.google.com/uc?export=view&id=YOUR_THUMBNAIL_FILE_ID)](https://drive.google.com/file/d/1nuL8WCh3NSw28heN2BCWUUQyShi9LT2G/view?usp=sharing)  
+[![Watch the demo video](https://drive.google.com/uc?export=view&id=1fTy_muFG0gd8T1sB6HmzwNVvnw_1ywa0)](https://drive.google.com/file/d/1nuL8WCh3NSw28heN2BCWUUQyShi9LT2G/view?usp=sharing)
+
+▶️ [Watch the demo video on Google Drive](https://drive.google.com/file/d/1nuL8WCh3NSw28heN2BCWUUQyShi9LT2G/view?usp=sharing)  
 
 ---
 
