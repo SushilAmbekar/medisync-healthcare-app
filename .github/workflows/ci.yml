@@ -139,6 +139,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # A Jenkins agent needs a JDK; the Jenkinsfile Runner image only has a JRE.
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
       # Runs the Jenkinsfile in a throwaway Jenkins, so a broken pipeline fails CI.
       - name: Run the Jenkinsfile
-        run: docker run --rm -v "$PWD:/workspace" ghcr.io/jenkinsci/jenkinsfile-runner:master
+        run: >-
+          docker run --rm
+          -v "$PWD:/workspace"
+          -v "$JAVA_HOME:/opt/jdk:ro"
+          -e JAVA_HOME=/opt/jdk
+          ghcr.io/jenkinsci/jenkinsfile-runner:jre-21
