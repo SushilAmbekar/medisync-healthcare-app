@@ -4,14 +4,15 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app/app-routing.module';
 import { importProvidersFrom } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { demoBackendInterceptor } from './app/demo/demo-backend.interceptor';
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
+    provideHttpClient(withInterceptors([demoBackendInterceptor])),
     importProvidersFrom(
-      BrowserAnimationsModule,
-      HttpClientModule
+      BrowserAnimationsModule
     )
   ]
 }).catch(err => console.error(err));

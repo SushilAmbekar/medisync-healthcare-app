@@ -1,0 +1,53 @@
+name: Deploy demo to GitHub Pages
+
+# Builds the Angular frontend in demo mode (sample data, no backend needed) and
+# publishes it to the gh-pages branch, which serves
+# https://sushilambekar.github.io/medisync-healthcare-app/
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'medisync-frontend/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: medisync-frontend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: medisync-frontend/package-lock.json
+
+      - run: npm ci
+
+      - name: Build (demo configuration)
+        run: npx ng build --configuration demo
+
+      # GitHub Pages has no SPA routing: serve index.html for deep links such as /appointments.
+      - name: Add the SPA fallback
+        run: |
+          cp dist/medisync-frontend/browser/index.html dist/medisync-frontend/browser/404.html
+          touch dist/medisync-frontend/browser/.nojekyll
+
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: medisync-frontend/dist/medisync-frontend/browser
+          commit_message: 'Deploy demo from ${{ github.sha }}'

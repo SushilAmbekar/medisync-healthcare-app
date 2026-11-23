@@ -15,3 +15,21 @@ button.active {
 }
 
 /* Retain your existing sidebar / mat-card styles if any */
+
+.demo-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #90caf9;
+  background: #e3f2fd;
+  color: #0d47a1;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.demo-banner mat-icon {
+  flex-shrink: 0;
+}

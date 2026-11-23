@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-appointments-page',
@@ -25,6 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
   ]
 })
 export class AppointmentsPageComponent {
+  readonly demoMode = environment.demoMode;
   errorMessage = '';
   appointments: any[] = [];
 

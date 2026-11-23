@@ -55,6 +55,28 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "demo": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "5MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all",
+              "baseHref": "/medisync-healthcare-app/",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.demo.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -67,6 +89,9 @@
             },
             "development": {
               "buildTarget": "medisync-frontend:build:development"
+            },
+            "demo": {
+              "buildTarget": "medisync-frontend:build:demo"
             }
           },
           "defaultConfiguration": "development"
