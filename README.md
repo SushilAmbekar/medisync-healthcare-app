@@ -40,6 +40,23 @@ This is a **Java Full Stack application** built with **Spring Boot (Backend)** a
 
 ---
 
+## ⚙️ Configuration
+
+The three backend services read their database settings from environment variables:
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `DB_URL` | `jdbc:mysql://localhost:3306/healthcare_db...` | JDBC URL of the MySQL database |
+| `DB_USERNAME` | `root` | Database user |
+| `DB_PASSWORD` | none, required | Database password |
+
+For example, to run a service locally:
+
+```bash
+export DB_PASSWORD=your-password
+./mvnw spring-boot:run
+```
+
 ## 📸 Screenshots
 
 | Appointment Booking | Appointments List |
