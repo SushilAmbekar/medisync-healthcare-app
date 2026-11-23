@@ -1,3 +1,5 @@
+@use '@angular/material' as mat;
+
 /* ==================== Global Styles ==================== */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
@@ -36,14 +38,17 @@ body {
 }
 
 /* ==================== Angular Material Theming ==================== */
-:root {
-  --mdc-theme-primary: #3f51b5; /* Indigo */
-  --mdc-theme-secondary: #e91e63; /* Pink */
-  --mdc-theme-background: #ffffff;
-  --mdc-theme-surface: #ffffff;
-  --mdc-theme-on-primary: #ffffff;
-  --mdc-theme-on-secondary: #ffffff;
-  --mdc-theme-on-surface: #000000;
+/* Material 3 theme: defines the --mat-sys-* tokens that every Material component reads.
+   Without it, overlay panels (datepicker, select options) have no background color. */
+html {
+  @include mat.theme((
+    color: (
+      primary: mat.$azure-palette,
+      theme-type: light,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
 }
 
 .mat-toolbar {
