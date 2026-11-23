@@ -32,13 +32,14 @@ spec:
                   key: password
           readinessProbe:
             httpGet:
-              path: /api/appointments
+              path: /actuator/health/readiness
               port: 8083
             initialDelaySeconds: 20
             periodSeconds: 5
             failureThreshold: 30
           livenessProbe:
-            tcpSocket:
+            httpGet:
+              path: /actuator/health/liveness
               port: 8083
             initialDelaySeconds: 120
             periodSeconds: 10

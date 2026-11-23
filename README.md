@@ -79,7 +79,7 @@ Then start the frontend with `npm start` in `medisync-frontend`.
 
 ## ☸️ Run on Kubernetes
 
-The `k8s/` folder has a Kustomize setup with a Deployment and Service for MySQL (with a persistent volume) and for each backend service, including readiness and liveness probes and resource limits. To run it on a local cluster such as [kind](https://kind.sigs.k8s.io/):
+The `k8s/` folder has a Kustomize setup with a Deployment and Service for MySQL (with a persistent volume) and for each backend service, including resource limits and readiness and liveness probes. The probes call the Spring Boot Actuator endpoints `/actuator/health/readiness` (which also checks the database) and `/actuator/health/liveness`. To run it on a local cluster such as [kind](https://kind.sigs.k8s.io/):
 
 ```bash
 kind create cluster --name medisync
