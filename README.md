@@ -74,6 +74,24 @@ docker compose up --build
 
 Then start the frontend with `npm start` in `medisync-frontend`.
 
+## ☸️ Run on Kubernetes
+
+The `k8s/` folder has a Kustomize setup with a Deployment and Service for MySQL (with a persistent volume) and for each backend service, including readiness and liveness probes and resource limits. To run it on a local cluster such as [kind](https://kind.sigs.k8s.io/):
+
+```bash
+kind create cluster --name medisync
+docker build -t medisync/patient-service:latest patient-service
+docker build -t medisync/doctor-service:latest doctor_service/doctor_service
+docker build -t medisync/appointment-service:latest appointment-service
+kind load docker-image --name medisync medisync/patient-service:latest medisync/doctor-service:latest medisync/appointment-service:latest
+
+kubectl create secret generic medisync-db --from-literal=password=your-password
+kubectl apply -k k8s/
+kubectl port-forward service/appointment-service 8083:8083
+```
+
+CI deploys these manifests to a kind cluster on every push and calls each service through its Kubernetes Service.
+
 ## 📸 Screenshots
 
 | Appointment Booking | Appointments List |
