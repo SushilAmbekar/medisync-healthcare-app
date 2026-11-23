@@ -132,3 +132,13 @@ jobs:
           kubectl get pods -o wide
           kubectl describe pods
           kubectl logs -l app --all-containers --tail=100 || true
+
+  jenkins:
+    name: Jenkinsfile (Jenkinsfile Runner)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Runs the Jenkinsfile in a throwaway Jenkins, so a broken pipeline fails CI.
+      - name: Run the Jenkinsfile
+        run: docker run --rm -v "$PWD:/workspace" ghcr.io/jenkinsci/jenkinsfile-runner:master
