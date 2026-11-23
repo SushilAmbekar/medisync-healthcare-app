@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -91,6 +92,16 @@ public class AppointmentController {
                     ));
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    /**
+     * Answers a date or time that cannot be parsed (for example "2026-13-45") with 400 Bad Request.
+     */
+    @ExceptionHandler(DateTimeParseException.class)
+    public ResponseEntity<Map<String, String>> handleInvalidDateOrTime(DateTimeParseException e) {
+        return ResponseEntity.badRequest().body(Map.of(
+                "message", "Invalid date or time: " + e.getParsedString()
+        ));
     }
 
     @DeleteMapping("/{id}")
