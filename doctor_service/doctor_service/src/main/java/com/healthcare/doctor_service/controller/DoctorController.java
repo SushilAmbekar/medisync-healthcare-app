@@ -2,6 +2,7 @@ package com.healthcare.doctor_service.controller;
 
 import com.healthcare.doctor_service.model.Doctor;
 import com.healthcare.doctor_service.service.DoctorService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,8 +22,9 @@ public class DoctorController {
     }
 
     @GetMapping("/{id}")
-    public Doctor getDoctorById(@PathVariable Long id) {
-        return doctorService.getDoctorById(id);
+    public ResponseEntity<Doctor> getDoctorById(@PathVariable Long id) {
+        Doctor doctor = doctorService.getDoctorById(id);
+        return doctor == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(doctor);
     }
 
     @PostMapping
@@ -31,8 +33,11 @@ public class DoctorController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteDoctor(@PathVariable Long id) {
+    public ResponseEntity<String> deleteDoctor(@PathVariable Long id) {
+        if (doctorService.getDoctorById(id) == null) {
+            return ResponseEntity.notFound().build();
+        }
         doctorService.deleteDoctor(id);
-        return "Doctor deleted successfully";
+        return ResponseEntity.ok("Doctor deleted successfully");
     }
 }
