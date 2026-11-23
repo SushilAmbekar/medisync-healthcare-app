@@ -1,0 +1,106 @@
+name: Release
+
+# On every push to master: publish each service's Docker image to GitHub Container Registry as :latest.
+# On a version tag (v1.2.3): publish :1.2.3 and :1.2 images too, then create a GitHub release
+# with the three service jars attached.
+
+on:
+  push:
+    branches: [master]
+    tags: ['v*.*.*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  packages: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  images:
+    name: Image ${{ matrix.image }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - image: medisync-patient-service
+            context: patient-service
+            description: MediSync patient service (Spring Boot 3.5, Java 17, JPA, MySQL, Actuator probes)
+          - image: medisync-doctor-service
+            context: doctor_service/doctor_service
+            description: MediSync doctor service (Spring Boot 3.5, Java 17, JPA, MySQL, Actuator probes)
+          - image: medisync-appointment-service
+            context: appointment-service
+            description: MediSync appointment service (Spring Boot 3.5, Java 17, JPA, MySQL, Actuator probes)
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/sushilambekar/${{ matrix.image }}
+          tags: |
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=sha
+          labels: |
+            org.opencontainers.image.title=${{ matrix.image }}
+            org.opencontainers.image.description=${{ matrix.description }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.context }}
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha,scope=${{ matrix.image }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.image }}
+
+  release:
+    name: GitHub release
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: images
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+      - name: Build and test the service jars
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          for service in patient-service:patient-service doctor_service/doctor_service:doctor-service appointment-service:appointment-service; do
+            dir="${service%%:*}"
+            name="${service##*:}"
+            (cd "$dir" && chmod +x mvnw && ./mvnw -B -ntp verify)
+            cp "$dir"/target/*-"${version}".jar "medisync-${name}-${version}.jar"
+          done
+      - name: Create the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          cat > notes.md <<EOF
+          ## Run this version
+
+          \`\`\`bash
+          docker pull ghcr.io/sushilambekar/medisync-patient-service:${version}
+          docker pull ghcr.io/sushilambekar/medisync-doctor-service:${version}
+          docker pull ghcr.io/sushilambekar/medisync-appointment-service:${version}
+          \`\`\`
+
+          Each service is also attached as a runnable jar (Java 17 and MySQL 8 needed).
+
+          Live demo: https://sushilambekar.github.io/medisync-healthcare-app/
+          EOF
+          gh release create "$GITHUB_REF_NAME" medisync-*-"${version}".jar \
+            --title "MediSync ${GITHUB_REF_NAME}" --notes-file notes.md --generate-notes --verify-tag

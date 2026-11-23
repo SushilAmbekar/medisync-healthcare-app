@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/SushilAmbekar/medisync-healthcare-app/actions/workflows/ci.yml/badge.svg)](https://github.com/SushilAmbekar/medisync-healthcare-app/actions/workflows/ci.yml)
 [![Deploy demo](https://github.com/SushilAmbekar/medisync-healthcare-app/actions/workflows/pages.yml/badge.svg)](https://github.com/SushilAmbekar/medisync-healthcare-app/actions/workflows/pages.yml)
+[![Release](https://img.shields.io/github/v/release/SushilAmbekar/medisync-healthcare-app)](https://github.com/SushilAmbekar/medisync-healthcare-app/releases/latest)
+[![Docker images](https://img.shields.io/badge/docker-ghcr.io-2496ed?logo=docker&logoColor=white)](https://github.com/SushilAmbekar?tab=packages&repo_name=medisync-healthcare-app)
 
 **Live demo:** https://sushilambekar.github.io/medisync-healthcare-app/ (the frontend runs in demo mode with sample data in your browser; run the Spring Boot services to use the real API)
 
@@ -76,6 +78,20 @@ docker compose up --build
 | appointment-service | http://localhost:8083/api/appointments |
 
 Then start the frontend with `npm start` in `medisync-frontend`.
+
+To skip the build, use the images CI publishes to GitHub Container Registry:
+
+```bash
+docker compose pull && docker compose up
+```
+
+| Image | Service |
+|-------|---------|
+| [`ghcr.io/sushilambekar/medisync-patient-service`](https://github.com/SushilAmbekar/medisync-healthcare-app/pkgs/container/medisync-patient-service) | patient-service |
+| [`ghcr.io/sushilambekar/medisync-doctor-service`](https://github.com/SushilAmbekar/medisync-healthcare-app/pkgs/container/medisync-doctor-service) | doctor-service |
+| [`ghcr.io/sushilambekar/medisync-appointment-service`](https://github.com/SushilAmbekar/medisync-healthcare-app/pkgs/container/medisync-appointment-service) | appointment-service |
+
+Tags: `latest` follows `master`, and each [release](https://github.com/SushilAmbekar/medisync-healthcare-app/releases) adds its version (`1.0.0`, `1.0`). Releases also attach each service as a runnable jar.
 
 ## ☸️ Run on Kubernetes
 
