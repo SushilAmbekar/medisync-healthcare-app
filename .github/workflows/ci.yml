@@ -90,3 +90,45 @@ jobs:
       - name: Stop the stack
         if: always()
         run: docker compose down -v
+
+  kubernetes:
+    name: Kubernetes deploy test (kind)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create a kind cluster
+        uses: helm/kind-action@v1
+        with:
+          cluster_name: medisync
+
+      - name: Build the images and load them into the cluster
+        run: |
+          docker build -t medisync/patient-service:latest patient-service
+          docker build -t medisync/doctor-service:latest doctor_service/doctor_service
+          docker build -t medisync/appointment-service:latest appointment-service
+          kind load docker-image --name medisync medisync/patient-service:latest medisync/doctor-service:latest medisync/appointment-service:latest
+
+      - name: Deploy the manifests
+        run: |
+          kubectl create secret generic medisync-db --from-literal=password=ci-password
+          kubectl apply -k k8s/
+          kubectl rollout status deployment/mysql --timeout=300s
+          for d in patient-service doctor-service appointment-service; do
+            kubectl rollout status deployment/$d --timeout=420s
+          done
+
+      - name: Call each service through its Kubernetes Service
+        run: |
+          for svc in patient-service:8081:patients doctor-service:8082:doctors appointment-service:8083:appointments; do
+            IFS=: read -r name port path <<< "$svc"
+            kubectl run "curl-$name" --rm -i --restart=Never --image=curlimages/curl:8.10.1 -- \
+              -sf -o /dev/null -w "GET http://$name:$port/api/$path -> HTTP %{http_code}\n" "http://$name:$port/api/$path"
+          done
+
+      - name: Show the pods and logs
+        if: failure()
+        run: |
+          kubectl get pods -o wide
+          kubectl describe pods
+          kubectl logs -l app --all-containers --tail=100 || true
