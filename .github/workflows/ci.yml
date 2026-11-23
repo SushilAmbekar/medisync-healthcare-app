@@ -146,10 +146,13 @@ jobs:
           java-version: '21'
 
       # Runs the Jenkinsfile in a throwaway Jenkins, so a broken pipeline fails CI.
+      # The JDK is copied with its symlinks resolved, because its cacerts file is a
+      # symlink to a path that does not exist inside the container.
       - name: Run the Jenkinsfile
-        run: >-
-          docker run --rm
-          -v "$PWD:/workspace"
-          -v "$JAVA_HOME:/opt/jdk:ro"
-          -e JAVA_HOME=/opt/jdk
-          ghcr.io/jenkinsci/jenkinsfile-runner:jre-21
+        run: |
+          cp -rL "$JAVA_HOME" "$RUNNER_TEMP/jdk"
+          docker run --rm \
+            -v "$PWD:/workspace" \
+            -v "$RUNNER_TEMP/jdk:/opt/jdk:ro" \
+            -e JAVA_HOME=/opt/jdk \
+            ghcr.io/jenkinsci/jenkinsfile-runner:jre-21
